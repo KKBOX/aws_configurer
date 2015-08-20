@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+$:.unshift(File.join(File.dirname(__FILE__), '../lib'))
+
+require 'rubygems'
+require 'optparse'
+require 'ostruct'
+require 'yaml'
+require 'aws_configurer'
+
+options = OpenStruct.new
+options.config = '~/.aws_configurer.yml'
+
+parser = OptionParser.new do |opts|
+  opts.banner = 'Usage: aws_configurer [options]'
+
+  opts.on('-c CONFIG_PATH', '--config=CONFIG_PATH', 'Specifiy config path. Default is ~/.aws_configurer.yml') do |c|
+    options.config = c
+  end
+
+  opts.on_tail('-h', '--help', 'Show this message') do
+    puts opts
+    exit
+  end
+
+  opts.on_tail('-v', '--version', 'Show version') do
+    puts AwsConfigurer::VERSION
+    exit
+  end
+end.parse!
+
+AwsConfigurer.run(YAML.load_file(options.config))
