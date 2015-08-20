@@ -24,7 +24,8 @@ Create a YAML file with the following structure.
 
 ```yaml
 ---
-account1:
+# Enable CloudTrail, send logs to CloudWatch and monitor Root Account Usage
+ACCOUNT1:
   access_key_id: ACCESS_KEY_ID
   secret_access_key: SECERT_ACCESS_KEY
   regions:
@@ -49,7 +50,8 @@ account1:
       SUBSCRIPTION_ENDPOINT: SUBSCRIPTION_PROTOCOL
     alarm_name: CLOUD_WATCH_ALARM
 
-account2:
+# Enable CloudTrail but don't send logs to CloudWatch
+ACCOUNT2:
   access_key_id: ACCESS_KEY_ID
   secret_access_key: SECERT_ACCESS_KEY
   regions:
