@@ -61,7 +61,7 @@ account2:
 
 ## Usage
 
-When you put the YAML in ~/.aws_configurer.yml, just execute:
+If you put the YAML in `~/.aws_configurer.yml`, just execute:
 
     $ aws_configurer
 
