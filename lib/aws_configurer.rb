@@ -1,5 +1,5 @@
 module AwsConfigurer
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
 
   autoload :CloudTrail, 'aws_configurer/cloud_trail'
   autoload :RootAccountUsage, 'aws_configurer/root_account_usage'
