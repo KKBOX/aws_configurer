@@ -20,8 +20,8 @@ module AwsConfigurer
           end
         end
       end
-    rescue Exception => e
-      puts e
+    rescue
+      abort $!.to_s
     end
   end
 end

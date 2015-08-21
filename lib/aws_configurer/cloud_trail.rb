@@ -20,7 +20,7 @@ module AwsConfigurer
     end
 
     def run
-      raise AwsConfigurer::Error.new(errors.join("\n")) unless errors.empty?
+      raise AwsConfigurer::Error, errors.join("\n") unless errors.empty?
 
       bucket_name = config_get(:bucket_name)
       bucket_region = config_get(:bucket_region)
