@@ -1,5 +1,5 @@
 module AwsConfigurer
-  VERSION = '0.1.1'
+  VERSION = '0.1.2'
 
   autoload :CloudTrail, 'aws_configurer/cloud_trail'
   autoload :RootAccountUsage, 'aws_configurer/root_account_usage'
@@ -20,8 +20,8 @@ module AwsConfigurer
           end
         end
       end
-    rescue Exception => e
-      puts e
+    rescue
+      abort $!.to_s
     end
   end
 end

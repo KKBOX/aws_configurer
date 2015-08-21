@@ -23,7 +23,7 @@ module AwsConfigurer
 
     def run
       errors = @cloud_trail_configurer.errors + self.errors
-      raise AwsConfigurer::Error.new(errors.join("\n")) unless errors.empty?
+      raise AwsConfigurer::Error, errors.join("\n") unless errors.empty?
 
       @cloud_trail_configurer.run
 
