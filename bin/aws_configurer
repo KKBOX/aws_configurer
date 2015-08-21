@@ -9,7 +9,7 @@ require 'yaml'
 require 'aws_configurer'
 
 options = OpenStruct.new
-options.config = '~/.aws_configurer.yml'
+options.config = "#{ENV['HOME']}/.aws_configurer.yml"
 
 parser = OptionParser.new do |opts|
   opts.banner = 'Usage: aws_configurer [options]'
