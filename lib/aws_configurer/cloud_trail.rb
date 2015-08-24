@@ -58,6 +58,7 @@ module AwsConfigurer
         Version: "2012-10-17",
         Statement: [
           {
+            Sid: "Allow CloudTrail Get Bucket ACL",
             Effect: "Allow",
             Principal: {
               AWS: Aws::CloudTrail::CLOUD_TRAIL_ARNS
@@ -66,6 +67,7 @@ module AwsConfigurer
             Resource: "arn:aws:s3:::#{bucket.name}"
           },
           {
+            Sid: "Allow CloudTrail Put Object",
             Effect: "Allow",
             Principal: {
               AWS: Aws::CloudTrail::CLOUD_TRAIL_ARNS
@@ -98,6 +100,7 @@ module AwsConfigurer
       assume_role_policy_document = JSON({
         Version: "2012-10-17",
         Statement: [{
+          Sid: "CloudTrailAssumeRole",
           Effect: "Allow",
           Principal: {
             Service: "cloudtrail.amazonaws.com"

@@ -20,6 +20,62 @@ Or install it directly:
 
 ## Setup
 
+Prepare IAM User or IAM Role for AWS Configurer with Administrator Permission for setup.
+Or use following permission for verification only.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudtrail:DescribeTrails",
+                "cloudtrail:GetTrailStatus",
+                "cloudwatch:DescribeAlarms",
+                "logs:DescribeLogGroups",
+                "logs:DescribeMetricFilters",
+                "sns:ListSubscriptionsByTopic",
+                "sns:ListTopics"
+
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketPolicy",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::CLOUD_TRAIL_BUCKET_NAME"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRole",
+                "iam:GetRolePolicy"
+            ],
+            "Resource": [
+                "arn:aws:iam::ACCOUNT_ID:role/CLOUD_TRAIL_ROLE_NAME"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetUser"
+            ],
+            "Resource": [
+                AWS_CONFIGUERER_IAM_ARN
+            ]
+        }
+    ]
+}
+```
+
 Create a YAML file with the following structure.
 
 ```yaml
